@@ -1,0 +1,12 @@
+*.DS_Store
+*.pdf
+*.log
+*.html
+.env
+
+__pycache__/
+.pytest_cache/
+archived_logs/
+assets/
+latest_logs/
+reports/
