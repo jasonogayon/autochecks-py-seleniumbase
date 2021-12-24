@@ -43,7 +43,7 @@ SeleniumBase has a neat *demo mode* feature. The tests will highlight the elemen
 
 ### Reports
 
-Running the tests on whatever mode generates a test report in HTML format, found inside the **report** directory.
+Running the tests on whatever mode generates a test report in HTML format, found inside the **report** directory. If there any one test fails, a screenshot of where the failure occured is automatically included in the report.
 
 Author: Jason B. Ogayon \
 Software Engineer and Software Tester
