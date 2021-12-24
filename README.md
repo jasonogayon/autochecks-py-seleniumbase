@@ -39,6 +39,8 @@ SeleniumBase has a neat *demo mode* feature. The tests will highlight the elemen
 
 ---
 
+![Sample SeleniumBase Test Report](./docs/12242021-test-report.png)
+
 ### Reports
 
 Running the tests on whatever mode generates a test report in HTML format, found inside the **report** directory.
