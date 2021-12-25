@@ -1,5 +1,7 @@
 # ToDoMVC React Automated Checks using Python and SeleniumBase
 
+![Todos CI Build](https://github.com/jasonogayon/autochecks-py-seleniumbase/actions/workflows/todos.yml/badge.svg)
+
 ## Running SeleniumBase UI Tests
 
 ### Dependencies
