@@ -31,6 +31,12 @@
 
 ---
 
+### With Visual Checks
+
+The default headless or with browser test runs do not check for visual differences from a baseline. If you want the visual checks triggered as well, run either `make hv` or `make uiv`.
+
+---
+
 ### On Demo Mode
 
 SeleniumBase has a neat *demo mode* feature. The tests will highlight the elements that are targetted for every step. To run the tests on this mode:

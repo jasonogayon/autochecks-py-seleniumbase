@@ -21,6 +21,10 @@ class TestsTodos(BaseCase):
         # Check that Number of Items Left is Correct
         self.assert_exact_text("1 item left", Todos.spanTodoCount)
 
+        # Visual Check
+        if self.data is not None and 'V' in self.data:
+            self.check_window(name="test_can_add_a_single_todo", level=1)
+
 
     def test_can_add_multiple_todos(self):
         # Go to ToDoMVC React Page
@@ -38,6 +42,10 @@ class TestsTodos(BaseCase):
         # Check that Number of Items Left is Correct
         self.assert_exact_text(f'{len(todos)} items left', Todos.spanTodoCount)
 
+        # Visual Check
+        if self.data is not None and 'V' in self.data:
+            self.check_window(name="test_can_add_multiple_todos", level=1)
+
 
     def test_can_remove_a_todo(self):
         # Go to ToDoMVC React Page
@@ -54,9 +62,13 @@ class TestsTodos(BaseCase):
         self.assert_element_not_visible(f'//li[.="{todo}"]')
         self.assert_element_not_visible(Todos.spanTodoCount)
 
+        # Visual Check
+        if self.data is not None and 'V' in self.data:
+            self.check_window(name="test_can_remove_a_todo", level=1)
+
 
     def test_can_edit_a_todo(self):
-        if self.data != 'CI':
+        if self.data is not None and 'CI' not in self.data:
             # Go to ToDoMVC React Page
             Todos.load(self)
 
@@ -72,6 +84,10 @@ class TestsTodos(BaseCase):
             self.assert_element_visible(f'//li[.="{newTodo}"]')
             self.assert_element_not_visible(f'//li[.="{todo}"]')
             self.assert_exact_text("1 item left", Todos.spanTodoCount)
+
+            # Visual Check
+            if self.data is not None and 'V' in self.data:
+                self.check_window(name="test_can_edit_a_todo", level=1)
 
 
     def test_can_mark_a_todo_as_completed_or_active(self):
@@ -92,11 +108,19 @@ class TestsTodos(BaseCase):
         # Check that Todo is Marked as Completed
         self.assert_attribute(todoEl,'class', 'completed')
 
+        # Visual Check
+        if self.data is not None and 'V' in self.data:
+            self.check_window(name="test_can_mark_a_todo_as_completed", level=1)
+
         # Mark Todo as Active
         Todos.markAsCompletedOrActive(self, todo)
 
         # Check that Todo is Marked as Active
         self.assert_attribute_not_present(todoEl,'class', 'completed')
+
+        # Visual Check
+        if self.data is not None and 'V' in self.data:
+            self.check_window(name="test_can_mark_a_todo_as_active", level=1)
 
 
     def test_can_mark_all_todos_as_completed_or_active(self):
@@ -121,6 +145,10 @@ class TestsTodos(BaseCase):
             todoEl = f'//li[.="{todo}"]'
             self.assert_attribute(todoEl,'class', 'completed')
 
+        # Visual Check
+        if self.data is not None and 'V' in self.data:
+            self.check_window(name="test_can_mark_all_todos_as_completed", level=1)
+
         # Mark All Todos as Active
         Todos.markAllAsCompletedOrActive(self)
 
@@ -128,6 +156,10 @@ class TestsTodos(BaseCase):
         for todo in todos:
             todoEl = f'//li[.="{todo}"]'
             self.assert_attribute_not_present(todoEl,'class', 'completed')
+
+        # Visual Check
+        if self.data is not None and 'V' in self.data:
+            self.check_window(name="test_can_mark_all_todos_as_active", level=1)
 
 
     def test_todo_input_has_a_placeholder_value_of_what_needs_to_be_done(self):
@@ -138,6 +170,10 @@ class TestsTodos(BaseCase):
         input = Todos.inputNewTodo
         self.wait_for_element_visible(input)
         self.assert_attribute(input,'placeholder', 'What needs to be done?')
+
+        # Visual Check
+        if self.data is not None and 'V' in self.data:
+            self.check_window(name="test_todo_input_has_a_placeholder_value_of_what_needs_to_be_done", level=1)
 
 
     def test_can_view_completed_or_active_todos(self):
@@ -163,12 +199,20 @@ class TestsTodos(BaseCase):
         for todo in active:
             self.assert_element_not_visible(f'//li[.="{todo}"]')
 
+        # Visual Check
+        if self.data is not None and 'V' in self.data:
+            self.check_window(name="test_can_view_completed_todos", level=1)
+
         # View Only Active Todos and Check that the Other Todos are Visible
         Todos.viewCompletedToDos(self, False)
         self.assert_element_not_visible(f'//li[.="{randomTodo}"]')
 
         for todo in active:
             self.assert_element_visible(f'//li[.="{todo}"]')
+
+        # Visual Check
+        if self.data is not None and 'V' in self.data:
+            self.check_window(name="test_can_view_active_todos", level=1)
 
 
     def test_adding_a_todo_from_the_completed_page_adds_the_todo_but_will_not_display_from_there(self):
@@ -196,3 +240,7 @@ class TestsTodos(BaseCase):
         # View Only Active Todos and Check that the Todo is There
         Todos.viewCompletedToDos(self, False)
         self.assert_element_visible(f'//li[.="{todo}"]')
+
+        # Visual Check
+        if self.data is not None and 'V' in self.data:
+            self.check_window(name="test_adding_a_todo_from_the_completed_page_adds_the_todo_but_will_not_display_from_there", level=1)

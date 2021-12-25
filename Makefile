@@ -33,9 +33,17 @@ ui:
 	@echo "Running tests ..."; echo "";
 	@pytest tests/tests-todos.py -s --html=reports/report.html
 
+uiv:
+	@echo "Running tests ..."; echo "";
+	@pytest tests/tests-todos.py  --data="V" -s --html=reports/report.html
+
 h:
 	@echo "Running tests ..."; echo "";
 	@pytest tests/tests-todos.py -s --html=reports/report.html --headless
+
+hv:
+	@echo "Running tests ..."; echo "";
+	@pytest tests/tests-todos.py --data="V" -s --html=reports/report.html --headless
 
 ci:
 	@echo "Running tests ..."; echo "";
