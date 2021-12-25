@@ -16,7 +16,7 @@ help:
 	@echo "    ui                  Run tests locally with browser"
 	@echo "    h                   Run tests locally without browser (headless)"
 	@echo "    demo                Run tests locally with browser on demo mode"
-	@echo "    bs                  Run tests on Browserstack"
+	@echo "    bs user={} key={}   Run tests on Browserstack, given a user and a key"
 	@echo ""
 	@echo "Git-Specific:"
 	@echo ""
@@ -43,7 +43,7 @@ demo:
 
 bs:
 	@echo "Running tests ..."; echo ""
-	@yarn run bs
+	@pytest tests/tests-todos.py --browser=remote --server=$(user):$(key)@hub.browserstack.com --port=80 --cap_file=capabilities/browserstack.py
 
 
 

@@ -39,6 +39,18 @@ SeleniumBase has a neat *demo mode* feature. The tests will highlight the elemen
 
 ---
 
+### Via Browserstack
+
+1. Follow the same steps 1-3 above.
+
+2. Create a Browserstack account, and get your Automate user name and access key when you're signed in.
+
+3. A default browser desired capabilities file can be found on the **capabilities/browserstack.py** file. Review and update it according to your requirements. You can use Browserstack's [Capabilities Generator](https://www.browserstack.com/automate/capabilities) for this purpose.
+
+4. Run the tests by running `make bs user={your_user} key={your_key}`
+
+---
+
 ![Sample SeleniumBase Test Report](./docs/12242021-test-report.png)
 
 ### Reports
