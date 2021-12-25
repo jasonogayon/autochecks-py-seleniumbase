@@ -37,6 +37,10 @@ h:
 	@echo "Running tests ..."; echo "";
 	@pytest tests/tests-todos.py -s --html=reports/report.html --headless
 
+ci:
+	@echo "Running tests ..."; echo "";
+	@pytest tests/tests-todos.py --data="CI" -s --html=reports/report.html --headless
+
 demo:
 	@echo "Running tests ..."; echo "";
 	@pytest tests/tests-todos.py -s --html=reports/report.html --demo_mode

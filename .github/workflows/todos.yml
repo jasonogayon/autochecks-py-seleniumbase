@@ -59,4 +59,4 @@ jobs:
 
     - name: Run Todos tests
       run: |
-        pytest tests/tests-todos.py -s --html=reports/report.html --headless
+        pytest tests/tests-todos.py --data="CI" -s --html=reports/report.html --headless

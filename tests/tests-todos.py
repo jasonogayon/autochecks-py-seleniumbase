@@ -56,21 +56,22 @@ class TestsTodos(BaseCase):
 
 
     def test_can_edit_a_todo(self):
-        # Go to ToDoMVC React Page
-        Todos.load(self)
+        if self.data != 'CI':
+            # Go to ToDoMVC React Page
+            Todos.load(self)
 
-        # Add a Todo
-        todo = 'todo X'
-        Todos.addTodo(self, todo)
+            # Add a Todo
+            todo = 'todo X'
+            Todos.addTodo(self, todo)
 
-        # Edit Todo
-        newTodo = 'todo Y'
-        Todos.editTodo(self, todo, newTodo)
+            # Edit Todo
+            newTodo = 'todo Y'
+            Todos.editTodo(self, todo, newTodo)
 
-        # Check that Todo is Updated
-        self.assert_element_visible(f'//li[.="{newTodo}"]')
-        self.assert_element_not_visible(f'//li[.="{todo}"]')
-        self.assert_exact_text("1 item left", Todos.spanTodoCount)
+            # Check that Todo is Updated
+            self.assert_element_visible(f'//li[.="{newTodo}"]')
+            self.assert_element_not_visible(f'//li[.="{todo}"]')
+            self.assert_exact_text("1 item left", Todos.spanTodoCount)
 
 
     def test_can_mark_a_todo_as_completed_or_active(self):
