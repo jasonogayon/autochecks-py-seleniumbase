@@ -91,7 +91,7 @@ class Todos(object):
 
     def viewCompletedToDos(self, completed):
         link = Todos.linkActive
-        if completed == True:
+        if completed is True:
             link = Todos.linkCompleted
 
         self.wait_for_element_visible(link)
