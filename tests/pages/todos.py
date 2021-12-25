@@ -52,7 +52,7 @@ class Todos(object):
 
         self.wait_for_element_visible(todo)
         self.double_click(todo)
-        inputEditTodo = self.wait_for_element_visible(Todos.inputEditTodo)
+        inputEditTodo = self.wait_for_element_present(Todos.inputEditTodo)
         inputEditTodo.send_keys(Keys.CONTROL, "a")
         inputEditTodo.send_keys(Keys.DELETE)
         inputEditTodo.send_keys(newText)
