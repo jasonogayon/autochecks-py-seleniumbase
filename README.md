@@ -4,10 +4,20 @@
 
 ## Running SeleniumBase UI Tests
 
+![Sample Test Run On a Terminal](./docs/demo.gif)
+
 ### Dependencies
 
 * [SeleniumBase](https://seleniumbase.io/)
 * SeleniumBase driver for your desired browser. Run `seleniumbase install chromedriver` for *Google Chrome* or `seleniumbase install geckodriver` for *Firefox*.
+
+If you're having trouble installing *SeleniumBase* on a Mac because the version of Python is < 3.0, [this](https://seleniumbase.io/other/py_virtual_envs.html) could help you:
+
+1. Install Python3 if you don't yet have one.
+2. Create a Python virtual environment for the project by running `python3 -m venv ENV_NAME`.
+3. Activate the created virtual environment. Run `source ENV_NAME/bin/activate`.
+4. Update pip. Run `pip install --upgrade pip`.
+5. Install Seleniumbase. Run `pip install seleniumbase`.
 
 ---
 

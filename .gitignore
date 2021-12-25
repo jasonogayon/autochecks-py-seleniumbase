@@ -4,6 +4,8 @@
 *.html
 .env
 
+py3/
+downloaded_files/
 __pycache__/
 .pytest_cache/
 archived_logs/
